@@ -1,42 +1,32 @@
-import java.util.LinkedList;
-
 public class TabelaHash {
     private final int tamanho;
-    private final LinkedList<Registro>[] tabela;
+    private final ListaEncadeadaRegistro[] tabela;
     private int colisoes;
     private final FuncaoHash funcaoHash;
 
-    @SuppressWarnings("unchecked")
+
     public TabelaHash(int tamanho, FuncaoHash funcaoHash) {
         this.tamanho = tamanho;
-        this.tabela = new LinkedList[tamanho];
         this.funcaoHash = funcaoHash;
         this.colisoes = 0;
+        this.tabela = new ListaEncadeadaRegistro[tamanho];
 
         for (int i = 0; i < tamanho; i++) {
-            tabela[i] = new LinkedList<>();
+            tabela[i] = new ListaEncadeadaRegistro();
         }
     }
 
     public void inserir(Registro registro) {
         int indice = funcaoHash.hash(registro, tamanho);
-        if (!tabela[indice].isEmpty()) {
+        if (!tabela[indice].estaVazia()) {
             colisoes++;
         }
-        tabela[indice].add(registro);
+        tabela[indice].inserir(registro);
     }
 
     public int buscar(Registro registro) {
         int indice = funcaoHash.hash(registro, tamanho);
-        int comparacoes = 0;
-
-        for (Registro r : tabela[indice]) {
-            comparacoes++;
-            if (r.getCodigo().equals(registro.getCodigo())) {
-                return comparacoes;
-            }
-        }
-        return comparacoes;
+        return tabela[indice].buscar(registro);
     }
 
     public int getColisoes() {

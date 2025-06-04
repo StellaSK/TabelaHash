@@ -19,9 +19,10 @@ public class Experimento {
         for (String arquivo : ARQUIVOS_DADOS) {
             List<Registro> dados = carregarDados(arquivo);
             for (int tamanhoTabela : TAMANHOS_TABELA) {
-                testarFuncao(new RestoDivisao(), dados, tamanhoTabela, arquivo);
-                testarFuncao(new Multiplicacao(), dados, tamanhoTabela, arquivo);
-                testarFuncao(new Dobramento(), dados, tamanhoTabela, arquivo);
+                testarFuncao("resto", dados, tamanhoTabela, arquivo);
+                testarFuncao("multiplicacao", dados, tamanhoTabela, arquivo);
+                testarFuncao("dobramento", dados, tamanhoTabela, arquivo);
+
             }
         }
     }
@@ -47,9 +48,9 @@ public class Experimento {
         return dados;
     }
 
-    private static void testarFuncao(FuncaoHash funcao, List<Registro> dados, int tamanhoTabela, String arquivo) {
-        TabelaHash tabela = new TabelaHash(tamanhoTabela, funcao);
-        String nomeFuncao = funcao.getClass().getSimpleName();
+    private static void testarFuncao(String tipoFuncao, List<Registro> dados, int tamanhoTabela, String arquivo) {
+        TabelaHash tabela = new TabelaHash(tamanhoTabela, tipoFuncao);
+        String nomeFuncao = tipoFuncao;
 
         // Teste de inserção
         long inicio = System.currentTimeMillis();

@@ -71,16 +71,16 @@ Cada combinação de conjunto de dados × função hash × tamanho de tabela res
 
 🧾 Conclusão
 
-As funções de multiplicação e RestoDivisão são as que apresentão os melhores resultados e muito semelhantes em Comparações feitas na busca e no tempo medio da mesma, numero de colições no inset é praticamente o mesmo, diferenciando por 1 comparação a mais em multiplicação, sobrando assim  o tempo de inserção, aonde ambos tambem competem, mutiplicação fica melhor 3 vezes, há um empate, e 5 vitorias do resto, porem por multiplicação se sair melhor nas comparações de 20M de dados nas tabelas de 10mil e 100mil, ela é recomendada para estes casos. Por tanto RestoDivisao e Multiplicacao, podem ser empatadas como as melhores, oque vai pesar na escolha de qual usar no final, sera o proposito,a quantidade de dados e o tamanho das tabelas.
+As funções de multiplicação e RestoDivisão são as que apresentão os melhores resultados e muito semelhantes em Comparações feitas na busca e no tempo medio da mesma, numero de colisões no inset é praticamente o mesmo, diferenciando por 1 comparação a mais em multiplicação, sobrando assim  o tempo de inserção, aonde ambos tambem competem, multiplicação fica melhor 3 vezes, há um empate, e 5 vitorias do resto, porem por multiplicação se sair melhor nas comparações de 20M de dados nas tabelas de 10mil e 100mil, ela é recomendada para estes casos. Por tanto RestoDivisao e Multiplicacao, podem ser empatadas como as melhores, oque vai pesar na escolha de qual usar no final, sera o propósito, a quantidade de dados e o tamanho das tabelas.
 
-O dobramento apresenta o melhor tempo de insersão na Tabela de 100mil com 20M de dados, porem é o pior em relação as comparações de buscas e tempo medio das mesmas.
+O dobramento apresenta o melhor tempo de inserção na Tabela de 100mil com 20M de dados, porem é o pior em relação as comparações de buscas e tempo medio das mesmas.
 
 O tamanho da tabela impacta diretamente o número de colisões, que são o numero total de dados menos o numero da tabela, com variação de unidades.
 
-As tabelas com 1.000.000 tiveram o menor tempo de busca e comparações feitas em ambos os testes.
+As tabelas com 100mil tiveram o menor tempo de busca e comparações feitas em ambos os testes.
 
 O uso de uma lista encadeada personalizada ao invés de listas prontas pode ter sido o responsavel pelo tempo excessivo para rodar o programa por completo, o qual ficou mais de 12
-horas rodando, e concerteza o numero elevado de 20M de dados teve impacto importante nisso.
+horas rodando, e com certeza o numero elevado de 20M de dados teve impacto importante nisso.
 
 
 
